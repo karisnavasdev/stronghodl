@@ -37,11 +37,36 @@ button { font: inherit; cursor: pointer; }
     linear-gradient(180deg, #03110b, #020806 40%, #04150e);
 }
 
-#shards {
+#shards,
+#lightning {
   position: fixed;
   inset: 0;
-  z-index: -1;
   pointer-events: none;
+}
+#shards { z-index: -1; }
+#lightning { z-index: 17; }
+
+.lightning-flash {
+  position: fixed;
+  inset: 0;
+  z-index: 18;
+  pointer-events: none;
+  opacity: 0;
+  background:
+    radial-gradient(ellipse at var(--lx, 50%) 8%, rgba(232, 255, 244, 0.38), transparent 34%),
+    radial-gradient(ellipse at var(--lx, 50%) 28%, rgba(28, 255, 138, 0.2), transparent 58%);
+  transition: opacity 70ms linear;
+}
+.lightning-flash.on { opacity: 1; }
+
+html.bolted h1 {
+  filter: drop-shadow(0 8px 0 #062214) drop-shadow(0 0 46px rgba(28, 255, 138, 0.9));
+}
+html.bolted .hero-banner {
+  box-shadow:
+    0 0 0 1px rgba(28, 255, 138, 0.6),
+    0 0 120px rgba(28, 255, 138, 0.5),
+    var(--shadow);
 }
 
 .ticker {
