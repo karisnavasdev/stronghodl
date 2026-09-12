@@ -2,9 +2,9 @@
 const CONFIG = {
   name: "Robinhodl",
   ticker: "HODL",
-  ca: "0xcomingsoon",
-  pair: "",
-  twitter: "",
+  ca: "0x6006844435802bb4c75f5f5129ad6801d451418a",
+  pair: "0x6006844435802bb4c75f5f5129ad6801d451418a",
+  twitter: "https://x.com/HODLONROBIN",
   pump: "",
   chainSlug: "robinhood",
 };
@@ -13,6 +13,10 @@ const caNodes = document.querySelectorAll("#ca-value, .ca-echo");
 caNodes.forEach((node) => {
   node.textContent = CONFIG.ca;
 });
+const caSocial = document.getElementById("ca-social");
+if (caSocial) {
+  caSocial.textContent = `${CONFIG.ca.slice(0, 6)}…${CONFIG.ca.slice(-4)}`;
+}
 
 function flashCopied(button) {
   const original = button.textContent;
@@ -63,7 +67,7 @@ if (CONFIG.twitter) {
   twitter.rel = "noopener noreferrer";
   twitter.classList.remove("soon");
   twitter.removeAttribute("aria-disabled");
-  twitterLabel.textContent = "Follow the fist";
+  twitterLabel.textContent = "@HODLONROBIN";
 }
 
 const dexFrame = document.getElementById("dex-frame");
